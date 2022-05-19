@@ -21,6 +21,8 @@ function App() {
   const [kk, setkk] = useState(false)
   const [myG, setmyG] = useState("")
   const [dis2, setdis2] = useState(false)
+  const [score1, setscore1] = useState(0)
+  const [score2, setscore2] = useState(0)
   const enterPlayer = () => {
     let firstPlayer = { fPlayer, fpCode }
     let secondPlayer = { sPlayer, spCode }
@@ -29,17 +31,17 @@ function App() {
     setallPlayer(bothPlayer)
   }
   let myInd;
-  if(p1Arr.length < 1){
+  if (p1Arr.length < 1) {
     myInd = 0
   }
-  else if (p1Arr.length >=1){
-    myInd = p1Arr.length-1
+  else if (p1Arr.length >= 1) {
+    myInd = p1Arr.length - 1
   }
 
   const num1 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] != "X") {
       setplayer1Arr(arr1)
     }
@@ -49,9 +51,10 @@ function App() {
     setone(p1Arr[myInd])
   }
   const num2 = () => {
+   
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
@@ -66,7 +69,7 @@ function App() {
   const num3 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -80,7 +83,7 @@ function App() {
   const num4 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -92,7 +95,7 @@ function App() {
   const num5 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -105,7 +108,7 @@ function App() {
   const num6 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -118,7 +121,7 @@ function App() {
   const num7 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -131,7 +134,7 @@ function App() {
   const num8 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -144,7 +147,7 @@ function App() {
   const num9 = () => {
     let arr1 = [...p1Arr, fpCode]
     let arr2 = [...p1Arr, spCode]
-   
+
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
     }
@@ -153,72 +156,105 @@ function App() {
     }
     setnine(p1Arr[myInd])
   }
-
-  if((one== fpCode && two == fpCode && three == fpCode ) || (one== fpCode && four == fpCode && seven == fpCode) || (three == fpCode && six == fpCode && nine == fpCode) || (seven == fpCode && eight == fpCode && nine == fpCode) || (two == fpCode && five == fpCode && eight == fpCode) || (one== fpCode && five == fpCode && nine == fpCode) || (three == fpCode && five == fpCode && seven == fpCode ) || (four == fpCode && five == fpCode && six == fpCode)){
-   console.log("You won John Fixit");
-  //  setkk(true)
+  let y;
+  if (((one == fpCode && two == fpCode && three == fpCode) || (one == fpCode && four == fpCode && seven == fpCode) || (three == fpCode && six == fpCode && nine == fpCode) || (seven == fpCode && eight == fpCode && nine == fpCode) || (two == fpCode && five == fpCode && eight == fpCode) || (one == fpCode && five == fpCode && nine == fpCode) || (three == fpCode && five == fpCode && seven == fpCode) || (four == fpCode && five == fpCode && six == fpCode))) {
+  // let myScore1 = score1 + 1
+    y = score1 ++;
+    // alert(y)
+    // setscore1(y)
   }
-  else if((one==spCode && two == spCode && three == spCode ) || (one==spCode && four == spCode && seven == spCode) || (three == spCode && six == spCode && nine == spCode) || (seven == spCode && eight == spCode && nine == spCode) || (two == spCode && five == spCode && eight == spCode) || (one==spCode && five == spCode && nine == spCode) || (three == spCode && five == spCode && seven == spCode ) || (four == spCode && five == spCode && six == spCode)){
-    console.log("You Won Adesewa");
-  //  setkk(true)
 
+  else if ((one == spCode && two == spCode && three == spCode) || (one == spCode && four == spCode && seven == spCode) || (three == spCode && six == spCode && nine == spCode) || (seven == spCode && eight == spCode && nine == spCode) || (two == spCode && five == spCode && eight == spCode) || (one == spCode && five == spCode && nine == spCode) || (three == spCode && five == spCode && seven == spCode) || (four == spCode && five == spCode && six == spCode)) {
+    // let myScore2 = score2 + 1
+    setscore2(1)
   }
   // else{
   //   console.log("You draw");
   // }
 
-  const cont=()=>{
-      setone("")
-      settwo("")
-      setthree("")
-      setfour("")
-      setfive("")
-      setsix("")
-      setseven("")
-      seteight("")
-      setnine("")
+  const cont = () => {
+    setone("");
+    settwo("");
+    setthree("");
+    setfour("");
+    setfive("");
+    setsix("");
+    setseven("");
+    seteight("");
+    setnine("");
   }
-  const restart=()=>{
+  const restart = () => {
     // location.reload();
   }
+
+ 
 
   return (
     <body>
       <div className="container-fluid bg-danger">
         <h2 className="text-center mt-2 text-warning">TIC TAC TOE</h2>
-        {/* { */}
-        {/* // allPlayer.length < 1 ? */}
-        <div className="mt-4 p-4">
-          <div className="form-floating mx-auto">
-            <input type="text" className="form-control w-50" placeholder="Enter player 1 here" name="fPlayer" onChange={(event) => setfPlayer(event.target.value)} value={fPlayer} />
-            <label for="">Enter player 1 here</label>
-          </div>
-          <div className="form-floating mx-auto">
-            <input type="text" className="form-control w-50 mt-2" placeholder="Enter player 2 here" name="sPlayer" onChange={(event) => setsPlayer(event.target.value)} value={sPlayer} />
-            <label for="" >Enter player 2 here</label>
-          </div>
-          <button className="btn btn-warning w-50 mt-3" onClick={enterPlayer}>Enter</button>
-        </div>
-        {/*  :  */}
-        <div className="text-center">
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space1" disabled={kk} onClick={num1}>{one}</button>
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space2" disabled={kk} onClick={num2}>{two}</button>
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space3" disabled={kk} onClick={num3}>{three}</button><br></br>
+        
+        {
+          allPlayer.length < 1 ?
+            <div className="mt-4 p-4">
+              <div className="form-floating mx-auto">
+                <input type="text" className="form-control w-50" placeholder="Enter player 1 here" name="fPlayer" onChange={(event) => setfPlayer(event.target.value)} value={fPlayer} />
+                <label for="">Enter player 1 here</label>
+              </div>
+              <div className="form-floating mx-auto">
+                <input type="text" className="form-control w-50 mt-2" placeholder="Enter player 2 here" name="sPlayer" onChange={(event) => setsPlayer(event.target.value)} value={sPlayer} />
+                <label for="" >Enter player 2 here</label>
+              </div>
+              <button className="btn btn-warning w-50 mt-3" onClick={enterPlayer}>Enter</button>
+            </div>
+            :
+            <div className="row pt-3">
+              <div className="text-cente col-md-6">
+                <div className="">
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space1" disabled={kk} onClick={num1}>{one}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space2" disabled={kk} onClick={num2}>{two}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space3" disabled={kk} onClick={num3}>{three}</button><br></br>
 
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space4" disabled={kk} onClick={num4}>{four}</button>
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space5" disabled={kk} onClick={num5}>{five}</button>
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space6" disabled={kk} onClick={num6}>{six}</button><br></br>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space4" disabled={kk} onClick={num4}>{four}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space5" disabled={kk} onClick={num5}>{five}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space6" disabled={kk} onClick={num6}>{six}</button><br></br>
 
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space7" disabled={kk} onClick={num7}>{seven}</button>
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space8" disabled={kk} onClick={num8}>{eight}</button>
-          <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-5 fs-1" id="space9" disabled={kk} onClick={num9}>{nine}</button>
-        </div>
-        <div className="btn-group mx-auto py-3 d-flex">
-          <button className="btn btn-outline-light text-light" onClick={cont}>Continue</button>
-          <button className="btn btn-warning ms-2" onClick={restart}>Restart</button>
-        </div>
-        {/* } */}
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space7" disabled={kk} onClick={num7}>{seven}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space8" disabled={kk} onClick={num8}>{eight}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space9" disabled={kk} onClick={num9}>{nine}</button>
+                </div>
+                <div className="btn-group mx-auto py-3">
+                  <button className="btn btn-outline-warning text-light" onClick={cont}>Continue</button>
+                  <button className="btn btn-warning ms-2" onClick={restart}>Restart</button>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="border border-4 border-dark p-2 rounded">
+                  <h2 className="card-header text-warning text-capitalize text-center">score board</h2>
+                  <table className="table text-center text-warning border-0">
+                    <thead>
+                      <th className="fs-2">Name</th>
+                      <th className="fs-2">Score</th>
+                    </thead>
+                    <tbody className="fs-3">
+                      <tr>
+                        <td className="py-3">{fPlayer}</td>
+                        <td className="py-3">{y}</td>
+                      </tr>
+                      <tr>
+                        <td className="py-3">{sPlayer}</td>
+                        <td className="py-3">{score2}</td>
+                      </tr>
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+              </div>
+            </div>
+        }
       </div>
+
     </body>
 
   )
