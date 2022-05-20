@@ -1,5 +1,5 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 function App() {
 
   const [fPlayer, setfPlayer] = useState("");
@@ -16,19 +16,30 @@ function App() {
   const [eight, seteight] = useState("")
   const [nine, setnine] = useState("")
   const [p1Arr, setplayer1Arr] = useState([])
-  const [p2Arr, setplayer2Arr] = useState([])
   const [allPlayer, setallPlayer] = useState([]);
   const [kk, setkk] = useState(false)
-  const [myG, setmyG] = useState("")
+
   const [dis2, setdis2] = useState(false)
   const [score1, setscore1] = useState(0)
   const [score2, setscore2] = useState(0)
+
+  const [win, setwin] = useState("")
+
+  useEffect(() => {
+    checkWin();
+  }, [one, two, three, four, five, six, seven, eight, nine])
+
   const enterPlayer = () => {
     let firstPlayer = { fPlayer, fpCode }
     let secondPlayer = { sPlayer, spCode }
 
-    let bothPlayer = [...allPlayer, firstPlayer, secondPlayer]
-    setallPlayer(bothPlayer)
+    if(fPlayer != "" || sPlayer != ""){
+      let bothPlayer = [...allPlayer, firstPlayer, secondPlayer]
+      setallPlayer(bothPlayer)
+    }
+    else{
+        alert('Please enter your name')
+    }
   }
   let myInd;
   if (p1Arr.length < 1) {
@@ -38,139 +49,127 @@ function App() {
     myInd = p1Arr.length - 1
   }
 
-  const num1 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
+  let arr1 = [...p1Arr, fpCode]
+  let arr2 = [...p1Arr, spCode]
 
-    if (p1Arr[myInd] != "X") {
-      setplayer1Arr(arr1)
+  const num1 = () => {
+    if (p1Arr[myInd] == fpCode) {
+      setplayer1Arr(arr2)
+      setone(spCode)
     }
     else {
-      setplayer1Arr(arr2)
+      setplayer1Arr(arr1)
+      setone(fpCode)
     }
-    setone(p1Arr[myInd])
+    setdis2(true)
   }
   const num2 = () => {
-   
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
-
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      settwo(spCode)
     }
     else {
       setplayer1Arr(arr1)
+      settwo(fpCode)
     }
-    settwo(p1Arr[myInd])
     // setdis2(true)
 
   }
   const num3 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      setthree(spCode)
     }
     else {
       setplayer1Arr(arr1)
-    }
+      setthree(fpCode)
 
-    setthree(p1Arr[myInd])
+    }
 
   }
   const num4 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
-
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      setfour(spCode)
     }
     else {
       setplayer1Arr(arr1)
+      setfour(fpCode)
     }
-    setfour(p1Arr[myInd])
   }
   const num5 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
-
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      setfive(spCode)
     }
     else {
       setplayer1Arr(arr1)
-    }
-    setfive(p1Arr[myInd])
+      setfive(fpCode)
 
+    }
   }
   const num6 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      setsix(spCode)
     }
     else {
       setplayer1Arr(arr1)
+      setsix(fpCode)
+
     }
-    setsix(p1Arr[myInd])
 
   }
   const num7 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      setseven(spCode)
     }
     else {
       setplayer1Arr(arr1)
+      setseven(fpCode)
     }
-    setseven(p1Arr[myInd])
-
   }
   const num8 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      seteight(spCode)
     }
     else {
       setplayer1Arr(arr1)
+      seteight(fpCode)
     }
-    seteight(p1Arr[myInd])
-
   }
   const num9 = () => {
-    let arr1 = [...p1Arr, fpCode]
-    let arr2 = [...p1Arr, spCode]
 
     if (p1Arr[myInd] == fpCode) {
       setplayer1Arr(arr2)
+      setnine(spCode)
     }
     else {
       setplayer1Arr(arr1)
+      setnine(fpCode)
+
     }
-    setnine(p1Arr[myInd])
-  }
-  let y;
-  if (((one == fpCode && two == fpCode && three == fpCode) || (one == fpCode && four == fpCode && seven == fpCode) || (three == fpCode && six == fpCode && nine == fpCode) || (seven == fpCode && eight == fpCode && nine == fpCode) || (two == fpCode && five == fpCode && eight == fpCode) || (one == fpCode && five == fpCode && nine == fpCode) || (three == fpCode && five == fpCode && seven == fpCode) || (four == fpCode && five == fpCode && six == fpCode))) {
-  // let myScore1 = score1 + 1
-    y = score1 ++;
-    // alert(y)
-    // setscore1(y)
   }
 
-  else if ((one == spCode && two == spCode && three == spCode) || (one == spCode && four == spCode && seven == spCode) || (three == spCode && six == spCode && nine == spCode) || (seven == spCode && eight == spCode && nine == spCode) || (two == spCode && five == spCode && eight == spCode) || (one == spCode && five == spCode && nine == spCode) || (three == spCode && five == spCode && seven == spCode) || (four == spCode && five == spCode && six == spCode)) {
-    // let myScore2 = score2 + 1
-    setscore2(1)
+
+  const checkWin = () => {
+    if ((one == fpCode && two == fpCode && three == fpCode) || (one == fpCode && four == fpCode && seven == fpCode) || (three == fpCode && six == fpCode && nine == fpCode) || (seven == fpCode && eight == fpCode && nine == fpCode) || (two == fpCode && five == fpCode && eight == fpCode) || (one == fpCode && five == fpCode && nine == fpCode) || (three == fpCode && five == fpCode && seven == fpCode) || (four == fpCode && five == fpCode && six == fpCode)) {
+      setscore1(score1 + 1)
+      setwin(allPlayer[0].fPlayer + " Won the game")
+      setkk(true)
+    } else if ((one == spCode && two == spCode && three == spCode) || (one == spCode && four == spCode && seven == spCode) || (three == spCode && six == spCode && nine == spCode) || (seven == spCode && eight == spCode && nine == spCode) || (two == spCode && five == spCode && eight == spCode) || (one == spCode && five == spCode && nine == spCode) || (three == spCode && five == spCode && seven == spCode) || (four == spCode && five == spCode && six == spCode)) {
+      setscore2(score2 + 1)
+      setwin(allPlayer[1].sPlayer + " Won the game")
+      setkk(true)
+    }
   }
-  // else{
-  //   console.log("You draw");
-  // }
 
   const cont = () => {
     setone("");
@@ -182,46 +181,59 @@ function App() {
     setseven("");
     seteight("");
     setnine("");
+    setplayer1Arr([])
+    setwin("")
+    setkk(false)
   }
   const restart = () => {
-    // location.reload();
+    window.location.reload();
   }
 
- 
+
 
   return (
     <body>
       <div className="container-fluid bg-danger">
-        <h2 className="text-center mt-2 text-warning">TIC TAC TOE</h2>
-        
+        <h2 className="text-center mt-2 text-warning pt-3">TIC TAC TOE GAME</h2>
         {
           allPlayer.length < 1 ?
             <div className="mt-4 p-4">
-              <div className="form-floating mx-auto">
-                <input type="text" className="form-control w-50" placeholder="Enter player 1 here" name="fPlayer" onChange={(event) => setfPlayer(event.target.value)} value={fPlayer} />
-                <label for="">Enter player 1 here</label>
+              <div className="row w-100">
+                <div className="form-floating col-md-6 ps-2">
+                  <input type="text" className="form-control w-100" placeholder="Enter player 1 here" name="fPlayer" onChange={(event) => setfPlayer(event.target.value)} value={fPlayer} />
+                  <label for="">Player 1 Name</label>
+                </div>
+                <div className="mt-1 col-md-6">
+                  <input type="text" className="form-control mt-2" placeholder="supply your Id" onChange={(event) => setfpCode(event.target.value)} />
+                </div>
               </div>
-              <div className="form-floating mx-auto">
-                <input type="text" className="form-control w-50 mt-2" placeholder="Enter player 2 here" name="sPlayer" onChange={(event) => setsPlayer(event.target.value)} value={sPlayer} />
-                <label for="" >Enter player 2 here</label>
+              <div className="row w-100 mt-2">
+                <div className="form-floating col-md-6 ps-2">
+                  <input type="text" className="form-control w-100" placeholder="Enter player 2 here" name="sPlayer" onChange={(event) => setsPlayer(event.target.value)} value={sPlayer} />
+                  <label for="" >Player 2 Name</label>
+                </div>
+                <div className="mt-1 col-md-6">
+                  <input type="text" className="form-control mt-2" placeholder="supply your Id" onChange={(event) => setspCode(event.target.value)} />
+                </div>
               </div>
               <button className="btn btn-warning w-50 mt-3" onClick={enterPlayer}>Enter</button>
             </div>
             :
-            <div className="row pt-3">
+            <div className="row p-3">
               <div className="text-cente col-md-6">
-                <div className="">
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space1" disabled={kk} onClick={num1}>{one}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space2" disabled={kk} onClick={num2}>{two}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space3" disabled={kk} onClick={num3}>{three}</button><br></br>
+                <h3 className="text-center text-warning">{win}</h3>
+                <div className="border px-5 border-5 border-light py-1" style={{ border: "1px solid darkred !important", borderRadius: "5vh 5vh", }}>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num1}>{one}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num2}>{two}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num3}>{three}</button><br></br>
 
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space4" disabled={kk} onClick={num4}>{four}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space5" disabled={kk} onClick={num5}>{five}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space6" disabled={kk} onClick={num6}>{six}</button><br></br>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num4}>{four}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num5}>{five}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num6}>{six}</button><br></br>
 
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space7" disabled={kk} onClick={num7}>{seven}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space8" disabled={kk} onClick={num8}>{eight}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-2 mt-2 p-4 w-25 h-25" id="space9" disabled={kk} onClick={num9}>{nine}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num7}>{seven}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num8}>{eight}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num9}>{nine}</button>
                 </div>
                 <div className="btn-group mx-auto py-3">
                   <button className="btn btn-outline-warning text-light" onClick={cont}>Continue</button>
@@ -229,24 +241,27 @@ function App() {
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="border border-4 border-dark p-2 rounded">
-                  <h2 className="card-header text-warning text-capitalize text-center">score board</h2>
-                  <table className="table text-center text-warning border-0">
+                <div className="border border-5 border-warning p-2" style={{ border: "1px solid #790000 !important", borderRadius: "5vh 0vh", }}>
+                  <h2 className="card-header text-warning text-capitalize text-center fw-bold fs-1">score board</h2>
+                  <table className="table text-center text-warning border-0" >
                     <thead>
-                      <th className="fs-2">Name</th>
-                      <th className="fs-2">Score</th>
+                      <th className="fs-3 fw-bold">Name</th>
+                      <th className="fs-3 fw-bold">User ID</th>
+                      <th className="fs-3 fw-bold">Score</th>
                     </thead>
-                    <tbody className="fs-3">
+                    <tbody className="fs-3 fw-bold">
                       <tr>
-                        <td className="py-3">{fPlayer}</td>
-                        <td className="py-3">{y}</td>
+                        <td className="py-3 fw-bold">{fPlayer}</td>
+                        <td className="py-3 fw-bold">{fpCode}</td>
+                        <td className="py-3 fw-bold">{score1}</td>
                       </tr>
                       <tr>
-                        <td className="py-3">{sPlayer}</td>
-                        <td className="py-3">{score2}</td>
+                        <td className="py-3 fw-bold">{sPlayer}</td>
+                        <td className="py-3 fw-bold">{spCode}</td>
+                        <td className="py-3 fw-bold">{score2}</td>
                       </tr>
                     </tbody>
-                    
+
                   </table>
 
                 </div>
