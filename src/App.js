@@ -169,6 +169,7 @@ function App() {
       setwin(allPlayer[1].sPlayer + " Won the game")
       setkk(true)
     }
+    
   }
 
   const cont = () => {
@@ -204,7 +205,7 @@ function App() {
                   <label for="">Player 1 Name</label>
                 </div>
                 <div className="mt-1 col-md-6">
-                  <input type="text" className="form-control mt-2" placeholder="supply your Id" onChange={(event) => setfpCode(event.target.value)} />
+                  <input type="text" className="form-control mt-2" max={3} placeholder="supply your Id" onChange={(event) => setfpCode(event.target.value)} />
                 </div>
               </div>
               <div className="row w-100 mt-2">
@@ -213,27 +214,27 @@ function App() {
                   <label for="" >Player 2 Name</label>
                 </div>
                 <div className="mt-1 col-md-6">
-                  <input type="text" className="form-control mt-2" placeholder="supply your Id" onChange={(event) => setspCode(event.target.value)} />
+                  <input type="text" className="form-control mt-2" max={3} placeholder="supply your Id" onChange={(event) => setspCode(event.target.value)} />
                 </div>
               </div>
               <button className="btn btn-warning w-50 mt-3" onClick={enterPlayer}>Enter</button>
             </div>
             :
             <div className="row p-3">
-              <div className="text-cente col-md-6">
+              <div className="text-center col-md-6">
                 <h3 className="text-center text-warning">{win}</h3>
                 <div className="border px-5 border-5 border-light py-1" style={{ border: "1px solid darkred !important", borderRadius: "5vh 5vh", }}>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num1}>{one}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num2}>{two}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num3}>{three}</button><br></br>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num1}>{one}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num2}>{two}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num3}>{three}</button><br></br>
 
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num4}>{four}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num5}>{five}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num6}>{six}</button><br></br>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num4}>{four}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num5}>{five}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num6}>{six}</button><br></br>
 
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num7}>{seven}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num8}>{eight}</button>
-                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3" disabled={kk} onClick={num9}>{nine}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num7}>{seven}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num8}>{eight}</button>
+                  <button className="btn btn-warning text-light border border-dark rounded-0 ms-3 my-3 mt-2 p-4 w-25 fs-3 text-center" disabled={kk} onClick={num9}>{nine}</button>
                 </div>
                 <div className="btn-group mx-auto py-3">
                   <button className="btn btn-outline-warning text-light" onClick={cont}>Continue</button>
