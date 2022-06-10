@@ -33,7 +33,7 @@ function App() {
     let firstPlayer = { fPlayer, fpCode }
     let secondPlayer = { sPlayer, spCode }
 
-    if(fPlayer != "" || sPlayer != ""){
+    if(fPlayer != "" || sPlayer != "" ){
       let bothPlayer = [...allPlayer, firstPlayer, secondPlayer]
       setallPlayer(bothPlayer)
     }
@@ -169,6 +169,14 @@ function App() {
       setwin(allPlayer[1].sPlayer + " Won the game")
       setkk(true)
     }
+    else if(one=='' || two =='' || three == '' || four =='' || five == '' || six == '' || seven == '' || eight == '' || nine == ''){
+      setwin("")
+    }
+    else if ((!(one == fpCode && two == fpCode && three == fpCode)) || (!(one == fpCode && four == fpCode && seven == fpCode)) || (!(three == fpCode && six == fpCode && nine == fpCode)) || (!(seven == fpCode && eight == fpCode && nine == fpCode)) || (!(two == fpCode && five == fpCode && eight == fpCode)) || (!(one == fpCode && five == fpCode && nine == fpCode)) || (!(three == fpCode && five == fpCode && seven == fpCode)) || (!(four == fpCode && five == fpCode && six == fpCode))) {
+      // setscore1(score1 + 1)
+      setwin("No player Won the game, you both draw")
+      // setkk(true)
+    }
     
   }
 
@@ -205,7 +213,7 @@ function App() {
                   <label for="">Player 1 Name</label>
                 </div>
                 <div className="mt-1 col-md-6">
-                  <input type="text" className="form-control mt-2" max={3} placeholder="supply your Id" onChange={(event) => setfpCode(event.target.value)} />
+                  <input type="text" className="form-control mt-2"  maxlength="3" placeholder="supply your Id" onChange={(event) => setfpCode(event.target.value)} />
                 </div>
               </div>
               <div className="row w-100 mt-2">
@@ -214,7 +222,7 @@ function App() {
                   <label for="" >Player 2 Name</label>
                 </div>
                 <div className="mt-1 col-md-6">
-                  <input type="text" className="form-control mt-2" max={3} placeholder="supply your Id" onChange={(event) => setspCode(event.target.value)} />
+                  <input type="text" className="form-control mt-2"  maxlength="3" placeholder="supply your Id" onChange={(event) => setspCode(event.target.value)} />
                 </div>
               </div>
               <button className="btn btn-warning w-50 mt-3" onClick={enterPlayer}>Enter</button>
